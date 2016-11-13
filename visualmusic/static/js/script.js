@@ -7,3 +7,19 @@
 
 // css adjustments in javascript
 // give elements properties "transition: all 1s ease"
+
+
+// theme 0:
+// svg circle, svg rect {
+//  fill: #F7D11E; (247,209,30)
+//  stroke: #F27F40; (242,127,64)
+
+// path {
+//   fill: #f88e22; (248,142,34)
+// }
+
+$(function () {
+	$.get('sentiments.txt', function(data) {
+	   console.log(data)
+	}, 'text');
+})

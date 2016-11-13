@@ -72,6 +72,8 @@ def main():
 
 		outfile.write((''.join(json.dumps(get_sentiment(lyrics)) + ", ")))
 
+	print "all good!"
+
 	
 
 main()

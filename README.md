@@ -6,6 +6,10 @@ visualizes music using sentiment analysis of lyrics
 
 best experience in Chrome
 
+# to run
+`python services.py`
+`python manage.py runserver`
+
 # dependencies/sources
 MusixMatch API - register and get unique API key
 IBM Watson Alchemy API - register and get unique API key; install [SDK](https://github.com/watson-developer-cloud/python-sdk); also requires Python >2.7.8
