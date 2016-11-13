@@ -4,11 +4,13 @@ import json
 
 # MusixMatch API key, should be an environment variable
 MUSIXMATCH_API_KEY = "1c1fc693d1e8a99b3fcd0cd662753cb1" 
+ALCHEMY_API_KEY=  "305fd46a1c555652ed509e9cb36d6292c7043af3"
 # if('MUSIXMATCH_API_KEY' in os.environ):
 #     MUSIXMATCH_API_KEY = os.environ['MUSIXMATCH_API_KEY']
 
 API_HOST = 'api.musixmatch.com'
 API_SELECTOR = '/ws/1.1/'
+
 
 def find_track(song_title, song_artist):
 	''' find track and return its id '''
@@ -46,6 +48,11 @@ def get_lyrics(track_id):
 	response = urllib2.urlopen(req).read()
 	parsed = json.loads(response)
 	return parsed["message"]["body"]["lyrics"]["lyrics_body"]
+
+def get_sentiment(inputText):
+	alchemy_language = AlchemyLanguageV1(api_key=ALCHEMY_API_KEY)
+	responseString = alchemy_language.emotion( text=inputText)
+	return responseString["docEmotions"]
 
 
 def main():
