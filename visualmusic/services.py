@@ -49,6 +49,7 @@ def get_lyrics(track_id):
 	parsed = json.loads(response)
 	return parsed["message"]["body"]["lyrics"]["lyrics_body"]
 
+## 5 emotions: "disgust", "fear". "joy", "sadness", "anger"
 def get_sentiment(inputText):
 	alchemy_language = AlchemyLanguageV1(api_key=ALCHEMY_API_KEY)
 	responseString = alchemy_language.emotion( text=inputText)
