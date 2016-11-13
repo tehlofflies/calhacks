@@ -1,6 +1,7 @@
 import requests
 import urllib2
 import json
+from watson_developer_cloud import AlchemyLanguageV1
 
 # MusixMatch API key, should be an environment variable
 MUSIXMATCH_API_KEY = "1c1fc693d1e8a99b3fcd0cd662753cb1" 
@@ -49,6 +50,7 @@ def get_lyrics(track_id):
 	parsed = json.loads(response)
 	return parsed["message"]["body"]["lyrics"]["lyrics_body"]
 
+
 ## 5 emotions: "disgust", "fear". "joy", "sadness", "anger"
 def get_sentiment(inputText):
 	alchemy_language = AlchemyLanguageV1(api_key=ALCHEMY_API_KEY)
@@ -57,11 +59,21 @@ def get_sentiment(inputText):
 
 
 def main():
-	song = "back to december"
-	artist = "taylor swift"
+	songs = {"lost": "temper trap", "9": "drake", "i'll be alright": "passion pit"}
+	outfile = open('sentiments.txt', 'w')
+	
+	for item in songs.keys():
+		song = item
+		artist = songs[item]
 
-	track_id = find_track(song, artist)
+		track_id = find_track(song, artist)
 
-	return get_lyrics(track_id)
+		lyrics = get_lyrics(track_id)
+
+		outfile.write((''.join(json.dumps(get_sentiment(lyrics)) + ", ")))
+
+	
+
+main()
 
 
