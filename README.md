@@ -6,6 +6,9 @@ visualizes music using sentiment analysis of lyrics
 
 best experience in Chrome
 
+try songs with varying sentiments.
+we used: 9 by Drake; I'll Be Alright by Passion Pit; Lost by Temper Trap
+
 ## to run
 ```
 python services.py
@@ -18,6 +21,8 @@ python manage.py runserver
 3. [Preziotte's Party Mode](https://github.com/preziotte/party-mode) - relied on heavily for visualization of music
 
 
-try songs with varying sentiments.
-we used: 9 by Drake; I'll Be Alright by Passion Pit; Lost by Temper Trap
+### features that would be nice to have
+1. search option for songs
+2. have sentiment analysis and color change working for files that the user drags and drops into the window
+3. have colors change for all themes
 
